@@ -13,11 +13,14 @@ public class MyObjInspector {
 		//inspect name of immediate superclass
 		inspectSuperclass(object, classObject);
 		//inspect name of interfaces the class implements
+		inspectInterfaces(object, classObject);
 		//inspect fields the class declares
 		inspectFields(object, objectsToInspect, classObject);
 		//inspect methods the class declares
 		inspectMethods(object, classObject);
 		//inspect constructors the class declares
+		inspectConstructors(object, classObject);
+		
 		inspectFieldClasses(object, objectsToInspect, classObject, recursive);
 		//inspect field values (only if recursive)
 	}
@@ -114,6 +117,36 @@ public class MyObjInspector {
 					
 				}
 			}
+		}
+	}
+	
+	private void inspectConstructors(Object obj, Class classObj){
+		if (classObj.getDeclaredConstructors().length > 0){
+			System.out.println("++++++++++++ Getting Constructors ++++++++++++");
+			Constructor constructors[] = classObj.getDeclaredConstructors();
+			for (Constructor constr : constructors){
+				Class[] params = constr.getParameterTypes();
+				String parameters = "( ";
+				for (Class param : params){
+					parameters += param.getSimpleName();
+					parameters += " ";
+				}
+				parameters += ")";
+				System.out.println(Modifier.toString(constr.getModifiers()) + " " + constr.getName() + parameters);
+			}
+		}
+	}
+	
+	private void inspectInterfaces(Object obj, Class classObj){
+		if (classObj.getInterfaces().length > 0){
+			System.out.println("++++++++++++ Getting Interfaces ++++++++++++");
+			Class[] interfaces = classObj.getInterfaces();
+			String faces = "";
+			for (Class inter : interfaces){
+				faces += inter.getSimpleName();
+				faces += " ";
+			}
+			System.out.println("Interfaces: " + faces);
 		}
 	}
 	

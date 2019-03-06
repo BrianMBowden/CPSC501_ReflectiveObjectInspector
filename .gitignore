@@ -1,6 +1,5 @@
-#bin and src directories
-./bin/
-./src/
+#binc directories
+bin/
 
 #zip files
 *.zip
@@ -9,6 +8,3 @@
 .classpath
 .settings/
 .project
-
-#all class files
-Asst2_test_driver/bin/

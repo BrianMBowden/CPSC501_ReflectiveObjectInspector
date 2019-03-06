@@ -27,19 +27,26 @@ public class MyObjInspector {
 	
 	private void inspectFields(Object obj, HashMap objsToInsp, Class classObj){
 		if (classObj.getDeclaredFields().length > 0){
+			System.out.println("++++++++++++ Getting Fields ++++++++++++");
 			Field fields[] = classObj.getDeclaredFields();
-			for (int i = 0; i < fields.length; i++){
-				fields[i].setAccessible(true);
-				if (! fields[i].getType().isPrimitive()){
-					objsToInsp.put(fields[i].getName(), fields[i]);
+			for (Field field : fields){
+				field.setAccessible(true);
+				if (! field.getType().isPrimitive()){
+					objsToInsp.put(field.getName(), field);
 				}
+				String mods = Modifier.toString(field.getModifiers());
+				String val = "";
 				try {
-					// probably change this format...
-					System.out.println("Name of Field " + i + " '" + fields[i].getName() + "' has value: " + fields[i].get(obj) + " and has Modifiers: " + Modifier.toString(fields[i].getModifiers()));
+					
+					if (field.get(obj) != null){
+						val = field.get(obj).toString();
+					}
+				} catch (Exception e) {
+					
 				}
-				catch (Exception e){
-				}
+				System.out.println(mods + " " + field.getName() + " " + val);
 			}
+				
 		}
 		if (classObj.getSuperclass() != java.lang.Object.class && classObj.getSuperclass() != null){
 			System.out.println("------------------------------------------------------------");

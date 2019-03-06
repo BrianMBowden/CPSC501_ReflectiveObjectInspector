@@ -1,0 +1,14 @@
+#bin and src directories
+./bin/
+./src/
+
+#zip files
+*.zip
+
+#eclipse stuff
+.classpath
+.settings/
+.project
+
+#all class files
+Asst2_test_driver/bin/

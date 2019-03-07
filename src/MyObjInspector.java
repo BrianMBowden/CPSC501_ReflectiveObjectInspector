@@ -6,23 +6,53 @@ public class MyObjInspector {
 	public MyObjInspector() { } // no need for a constructor
 	
 	public void inspect (Object object, boolean recursive){
+		
+		System.out.println("into inspection");
+		
 		HashMap objectsToInspect = new HashMap();
 		Class classObject = object.getClass();
+		String fullName = "";
+		
+		fullName += Modifier.toString(getClassModifiers(classObject));
+		fullName += " class ";
+		fullName += getClassName(classObject);
+		if (classObject.getSuperclass() != java.lang.Object.class){
+			fullName += " extends ";
+			fullName += getSuperclassName(classObject);
+			fullName += " ";
+		}
+		if (classObject.getInterfaces().length > 0){
+			fullName += " implements ";
+			Class[] interfaces = getInterfaces(classObject);
+			for (Class face : interfaces){
+				fullName += face.getSimpleName();
+				fullName += " ";
+			}
+		}	
+		System.out.println(fullName);
+		
 		
 		//inspect name of declaring class
+		
 		//inspect name of immediate superclass
-		inspectSuperclass(object, classObject);
+		inspectSuperclass(object, classObject, recursive);
+		
 		//inspect name of interfaces the class implements
-		inspectInterfaces(object, classObject);
+		inspectInterfaces(object, classObject, recursive);
+		
 		//inspect fields the class declares
 		inspectFields(object, objectsToInspect, classObject);
+		inspectFieldClasses(object, objectsToInspect, classObject, recursive);
 		//inspect methods the class declares
 		inspectMethods(object, classObject);
 		//inspect constructors the class declares
-		inspectConstructors(object, classObject);
+		inspectConstructors(object, classObject);		
+		//inspectFieldClasses(object, objectsToInspect, classObject, recursive);
 		
-		inspectFieldClasses(object, objectsToInspect, classObject, recursive);
 		//inspect field values (only if recursive)
+		
+		System.out.println("end of inspection of class " + fullName);
+
 	}
 	
 	private void inspectFields(Object obj, HashMap objsToInsp, Class classObj){
@@ -31,13 +61,16 @@ public class MyObjInspector {
 			Field fields[] = classObj.getDeclaredFields();
 			for (Field field : fields){
 				field.setAccessible(true);
-				if (! field.getType().isPrimitive()){
-					objsToInsp.put(field.getName(), field);
+				if (! field.getType().isPrimitive() && !field.getType().getName().contains("java.lang") && !field.getType().isArray()){
+					System.out.println("adding " + field.getName());
+					objsToInsp.put(field.getType().getName(), field);
+				}
+				if (field.getType().isArray()){
+					System.out.println("found array");
 				}
 				String mods = Modifier.toString(field.getModifiers());
 				String val = "";
 				try {
-					
 					if (field.get(obj) != null){
 						val = field.get(obj).toString();
 					}
@@ -46,44 +79,69 @@ public class MyObjInspector {
 				}
 				System.out.println(mods + " " + field.getName() + " " + val);
 			}
+			System.out.println(objsToInsp.toString());
 				
 		}
-		if (classObj.getSuperclass() != java.lang.Object.class && classObj.getSuperclass() != null){
+/*		if (classObj.getSuperclass() != java.lang.Object.class && classObj.getSuperclass() != null){
 			System.out.println("------------------------------------------------------------");
 			System.out.println("Inspecting fields of " + classObj.getName() + "'s Superclass: ");
 			inspectFields(obj, objsToInsp, classObj.getSuperclass());
 			System.out.println("------------------------------------------------------------");
-		}
+		}*/
 	}
 	
 	private void inspectFieldClasses(Object obj, HashMap objsToInsp, Class classObj, boolean recursive){
 
 		if (recursive){
 			if (!objsToInsp.isEmpty()){
-				System.out.println("----- Inspecting Field Classes -----");
-			}
-			Field fields[] = classObj.getDeclaredFields();
-			for(int i = 0; i < fields.length; i++){
-				fields[i].setAccessible(true);
-				if (!fields[i].getType().isPrimitive()){
-					inspect(objsToInsp.get(fields[i].getName()), false);
+				System.out.println("-------------------- Inspecting Field Classes -----------------------");
+				Field fields[] = classObj.getDeclaredFields();
+				for(int i = 0; i < fields.length; i++){
+					fields[i].setAccessible(true);
+					if (!fields[i].getType().isPrimitive()){
+						
+						try{
+							Class c = fields[i].getType();
+							System.out.println(c.getName());
+							inspect(c.newInstance(), recursive);
+						} catch (Exception e){
+							e.printStackTrace();
+						}
+					}
 				}
+			System.out.println("----------------------- Done Inspecting Field Classes ---------------------");
 			}
-			
 		}
 		
 		
 		
 	}
 	
-	private void inspectSuperclass(Object obj, Class classObj){
+	private void inspectSuperclass(Object obj, Class classObj, boolean recursive){
 		if (classObj.getSuperclass() != null){
 			try {
 				System.out.println("Name of Superclass: " + classObj.getSuperclass().getName());
+				if (!classObj.getSuperclass().getName().contains("java.lang") && recursive){
+					System.out.println("------------------- Inspecting Superclass ----------------");
+					// this is where we would recurse
+					// inspect(classObj.getSuperclass(), false);
+					// inspect((Object)classObj.getSuperclass().newInstance(), true);
+					Class c = classObj.getSuperclass();
+					HashMap superHash = new HashMap();
+					System.out.println(c.getName());
+					inspectSuperclass(obj, c, recursive);
+					inspectInterfaces(obj, c, recursive);
+					inspectConstructors(obj, c);
+					inspectFields(obj, superHash, c);
+					inspectMethods(obj, c);
+					inspectFieldClasses(obj, superHash, c, recursive);
+					System.out.println("------------------- Done Inspecting " + classObj.getSuperclass().getName() + " ----------------");
+				}
 			} catch (Exception e) {
-				
+				e.printStackTrace();
 			}
 		}
+		
 	}
 	
 	private void inspectMethods(Object obj, Class classObj){
@@ -144,7 +202,7 @@ public class MyObjInspector {
 		}
 	}
 	
-	private void inspectInterfaces(Object obj, Class classObj){
+	private void inspectInterfaces(Object obj, Class classObj, boolean recursive){
 		if (classObj.getInterfaces().length > 0){
 			System.out.println("++++++++++++ Getting Interfaces ++++++++++++");
 			Class[] interfaces = classObj.getInterfaces();
@@ -154,8 +212,29 @@ public class MyObjInspector {
 				faces += " ";
 			}
 			System.out.println("Interfaces: " + faces);
+			for (Class inter : interfaces){
+				if (!inter.getName().contains("java.io") && !inter.getName().contains("java.lang") && recursive){
+					System.out.println("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- Inspecting Heirachal Interfaces =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
+					HashMap interHash = new HashMap();
+					System.out.println(inter.getName());
+					inspectSuperclass(obj, inter, recursive);
+					inspectInterfaces(obj, inter, recursive);
+					inspectConstructors(obj, inter);
+					inspectFields(obj, interHash, inter);
+					inspectMethods(obj, inter);
+					inspectFieldClasses(obj, interHash, inter, recursive);
+					System.out.println("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-    Inspecting Interfaces Done    =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
+				}
+			}
+
 		}
 	}
+	
+	private String getClassName(Class objClass){ return objClass.getSimpleName(); }
+	private String getSuperclassName(Class objClass) {return objClass.getSuperclass().getSimpleName(); }
+	private Class[] getInterfaces(Class objClass) {return objClass.getInterfaces();}
+	private int getClassModifiers(Class objClass) {return objClass.getModifiers();}
+	
 	
 	
 	

@@ -1,0 +1,59 @@
+commit 3a9fb7cd5e78fe4437b537db065cf6cc29292c43
+Author: BrianMBowden <brianmbowden@live.ca>
+Date:   Fri Mar 8 13:01:16 2019 -0700
+
+    Refactor: Removed parameter. Got rid of the Object being carried around in most methods because it was not being used
+
+commit 5917a1e93dcaa07cbaa9813d924cc37466884027
+Author: BrianMBowden <brianmbowden@live.ca>
+Date:   Fri Mar 8 12:56:28 2019 -0700
+
+    Arrays work (kind of), some trouble with thesting string class. Cleaned up a few things.
+
+commit 6b9e9e055abc77c24d40f4aedcd040f78cae7c60
+Author: BrianMBowden <brianmbowden@live.ca>
+Date:   Thu Mar 7 22:35:46 2019 -0700
+
+    Changed how recursion through class hierarchy works, some cleaning up of output
+
+commit 863fcbf30af8ddf6cc80033686fb54bc1df9c479
+Author: BrianMBowden <brianmbowden@live.ca>
+Date:   Thu Mar 7 18:11:28 2019 -0700
+
+    Refactor: duplicated code, extract method inspectAll
+
+commit 6bbf11c38f372b0612367282466003eb32a556a1
+Author: BrianMBowden <brianmbowden@live.ca>
+Date:   Thu Mar 7 15:40:34 2019 -0700
+
+    commented out a few test driver runs for ease of runs. Added functionality to recursion, arrays not working yet, catching exception instead
+
+commit 59f244fa5ac2d169d0b6d06c2c278856ab16e6b4
+Author: BrianMBowden <brianmbowden@live.ca>
+Date:   Wed Mar 6 16:00:01 2019 -0700
+
+    refactored inspectFields method
+
+commit fe3ce3ea3002079f5ac257dd7bff395ba8226e82
+Author: BrianMBowden <brianmbowden@live.ca>
+Date:   Wed Mar 6 15:31:56 2019 -0700
+
+    added methods inspectConstructor and inspectInterfaces
+
+commit 27201cf5c4f68f6d37c365613bf1dc04aeeb4ab7
+Author: BrianMBowden <brianmbowden@live.ca>
+Date:   Wed Mar 6 14:15:57 2019 -0700
+
+    added functionality, new methods for inspectMethod, inspectFieldClasses, and inspectSuperclass
+
+commit 6f1f2f70990b2fab6a8760976e45f4424ed0fabf
+Author: BrianMBowden <brianmbowden@live.ca>
+Date:   Tue Mar 5 18:38:16 2019 -0700
+
+    changed bulid path, added MyObjInspector.java with minimal functionality
+
+commit 4c0b2c3bfeaa4582aeb3b76136025941ecd4328c
+Author: BrianMBowden <brianmbowden@live.ca>
+Date:   Tue Mar 5 17:23:07 2019 -0700
+
+    initial commit

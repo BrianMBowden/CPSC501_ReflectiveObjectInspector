@@ -1,0 +1,13 @@
+from the project directory, compile with:
+javac -d ./bin/ ./src/*.java
+This will put exectuables and classes in the bin folder
+
+from the bin folder in the project directory, run with
+java Asst2TestDriver MyObjInspector
+
+
+Note:
+The test driver tries to do the String.class in its last test, the object inspector WILL fail on this test. There is a NullPointerException that I can
+not figure out at this time. This will have to be fixed at a later date.
+
+There are no unit tests included.

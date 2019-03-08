@@ -1,0 +1,18 @@
+Refactor 1: Large Method -> Extracted Method
+	inspectFields was doing too much, extracted another method out of it (inspectSuperclass)
+	Really it was just poor design trying to inspect fields and superclasses
+	Reference number: 59f244f
+	
+Refactor 2: Duplicated code -> Extracted Method
+	was constantly calling the same set of methods over and over, pulled all references to them and made a method out of it (inspectAll)
+	Reference number: 863fcbf
+	
+Refactor 3: Pulled-up Field
+	The hashMap was constantly being used, made this a private static field instead of passing around the method
+	The motivation here was to improve the hierarchy inspection
+	This also removed the need for inspectAll so, so the method was removed
+	Reference number: 6b9e9e0
+
+Refactor 4: Removed Parameter
+	Most of the methods required the Object but never used it, removed this parameter
+	Reference Number: 3a9fb7c

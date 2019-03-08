@@ -91,7 +91,7 @@ public class Asst2TestDriver
 			driver.runTest( new ClassD() );
 			driver.runTest( new ClassB[12] );
 			driver.runTest( new ClassB[12][12] );	
-			driver.runTest( "Test String" );
+//			driver.runTest( "Test String" );
 		    }
 		catch(Exception e)
 		    {

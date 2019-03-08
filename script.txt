@@ -1,0 +1,569 @@
+Script started on Fri 08 Mar 2019 01:28:42 PM STD
+aliases are active
+]0;bbowd@DESKTOP-94NVG4D: /mnt/c/Users/Brian/workspace/ReflectiveObjectInspector[01;36mbbowd@DESKTOP-94NVG4D[00m:[01;35m/mnt/c/Users/Brian/workspace/ReflectiveObjectInspector[00m$ 
+--> ll
+total 8
+drwxrwxrwx 1 bbowd bbowd  512 Mar  8 13:28 [0m[34;42m.[0m/
+drwxrwxrwx 1 bbowd bbowd  512 Mar  5 16:30 [34;42m..[0m/
+drwxrwxrwx 1 bbowd bbowd  512 Mar  5 18:28 [34;42mbin[0m/
+-rwxrwxrwx 1 bbowd bbowd  301 Mar  5 16:30 [01;32m.classpath[0m*
+drwxrwxrwx 1 bbowd bbowd  512 Mar  8 13:24 [34;42m.git[0m/
+-rwxrwxrwx 1 bbowd bbowd   88 Mar  5 18:36 [01;32m.gitignore[0m*
+-rwxrwxrwx 1 bbowd bbowd 2109 Mar  8 13:23 [01;32mgitlog[0m*
+-rwxrwxrwx 1 bbowd bbowd  401 Mar  5 16:30 [01;32m.project[0m*
+-rwxrwxrwx 1 bbowd bbowd  497 Mar  8 13:24 [01;32mREADME[0m*
+-rwxrwxrwx 1 bbowd bbowd  905 Mar  8 13:17 [01;32mrefactorings[0m*
+-rwxrwxrwx 1 bbowd bbowd    0 Mar  8 13:28 [01;32mscript.txt[0m*
+drwxrwxrwx 1 bbowd bbowd  512 Mar  5 16:30 [34;42m.settings[0m/
+drwxrwxrwx 1 bbowd bbowd  512 Mar  7 20:36 [34;42msrc[0m/
+]0;bbowd@DESKTOP-94NVG4D: /mnt/c/Users/Brian/workspace/ReflectiveObjectInspector[01;36mbbowd@DESKTOP-94NVG4D[00m:[01;35m/mnt/c/Users/Brian/workspace/ReflectiveObjectInspector[00m$ 
+--> cd bin
+]0;bbowd@DESKTOP-94NVG4D: /mnt/c/Users/Brian/workspace/ReflectiveObjectInspector/bin[01;36mbbowd@DESKTOP-94NVG4D[00m:[01;35m/mnt/c/Users/Brian/workspace/ReflectiveObjectInspector/bin[00m$ 
+--> ll
+total 40
+drwxrwxrwx 1 bbowd bbowd  512 Mar  5 18:28 [0m[34;42m.[0m/
+drwxrwxrwx 1 bbowd bbowd  512 Mar  8 13:28 [34;42m..[0m/
+-rwxrwxrwx 1 bbowd bbowd 3409 Mar  8 13:26 [01;32mAsst2TestDriver.class[0m*
+-rwxrwxrwx 1 bbowd bbowd 1089 Mar  7 12:46 [01;32mClassA.class[0m*
+-rwxrwxrwx 1 bbowd bbowd  580 Mar  7 12:46 [01;32mClassB.class[0m*
+-rwxrwxrwx 1 bbowd bbowd  917 Mar  7 12:46 [01;32mClassC.class[0m*
+-rwxrwxrwx 1 bbowd bbowd  609 Mar  7 12:46 [01;32mClassD.class[0m*
+-rwxrwxrwx 1 bbowd bbowd  343 Mar  7 12:46 [01;32mInterfaceA.class[0m*
+-rwxrwxrwx 1 bbowd bbowd  173 Mar  7 12:46 [01;32mInterfaceB.class[0m*
+-rwxrwxrwx 1 bbowd bbowd 8722 Mar  8 12:59 [01;32mMyObjInspector.class[0m*
+-rwxrwxrwx 1 bbowd bbowd 2256 Mar  7 12:46 [01;32mObjectInspector.class[0m*
+-rwxrwxrwx 1 bbowd bbowd  764 Oct 23  2005 [01;32mREADME[0m*
+]0;bbowd@DESKTOP-94NVG4D: /mnt/c/Users/Brian/workspace/ReflectiveObjectInspector/bin[01;36mbbowd@DESKTOP-94NVG4D[00m:[01;35m/mnt/c/Users/Brian/workspace/ReflectiveObjectInspector/bin[00m$ 
+--> java Asst2TestDriver MyObjInspector
+Loading object inspector: MyObjInspector
+======================================================
+Running Test: ClassA
+public final class ClassA implements Serializable Runnable 
+Name of Superclass: java.lang.Object
+++++++++++++ Getting Interfaces ++++++++++++
+Interfaces: Serializable Runnable 
+++++++++++++ Getting Fields of ClassA ++++++++++++
+private int val 3
+private double val2 0.2
+private boolean val3 true
+   +++++ Methods of Class ClassA ++++++    
+this class has 5 declared methods
+public int getVal ( )
+private void printSomething ( )
+public void run ( )
+public String toString ( )
+public void setVal ( int ) throws Exception 
+++++++++++++ Getting Constructors ++++++++++++
+public ClassA( )
+public ClassA( int )
+======
+In class: java.lang.Object
+No superclass to inspect
+++++++++++++ Getting Fields of Object ++++++++++++
+   +++++ Methods of Class Object ++++++    
+this class has 12 declared methods
+protected void finalize ( ) throws Throwable 
+public final void wait ( long int ) throws InterruptedException 
+public final native void wait ( long ) throws InterruptedException 
+public final void wait ( ) throws InterruptedException 
+public boolean equals ( Object )
+public String toString ( )
+public native int hashCode ( )
+public final native Class getClass ( )
+protected native Object clone ( ) throws CloneNotSupportedException 
+private static native void registerNatives ( )
+public final native void notify ( )
+public final native void notifyAll ( )
+++++++++++++ Getting Constructors ++++++++++++
+public java.lang.Object( )
+======
+======
+In class: java.io.Serializable
+No superclass to inspect
+++++++++++++ Getting Fields of Serializable ++++++++++++
+   +++++ Methods of Class Serializable ++++++    
+this class has 0 declared methods
+======
+end of inspection of class public final class ClassA implements Serializable Runnable 
+======================================================
+======================================================
+Running Test: ClassA
+public final class ClassA implements Serializable Runnable 
+Name of Superclass: java.lang.Object
+++++++++++++ Getting Interfaces ++++++++++++
+Interfaces: Serializable Runnable 
+++++++++++++ Getting Fields of ClassA ++++++++++++
+private int val 12
+private double val2 0.2
+private boolean val3 true
+   +++++ Methods of Class ClassA ++++++    
+this class has 5 declared methods
+public int getVal ( )
+private void printSomething ( )
+public void run ( )
+public String toString ( )
+public void setVal ( int ) throws Exception 
+++++++++++++ Getting Constructors ++++++++++++
+public ClassA( )
+public ClassA( int )
+======
+In class: java.lang.Object
+No superclass to inspect
+++++++++++++ Getting Fields of Object ++++++++++++
+   +++++ Methods of Class Object ++++++    
+this class has 12 declared methods
+protected void finalize ( ) throws Throwable 
+public final void wait ( long int ) throws InterruptedException 
+public final native void wait ( long ) throws InterruptedException 
+public final void wait ( ) throws InterruptedException 
+public boolean equals ( Object )
+public String toString ( )
+public native int hashCode ( )
+public final native Class getClass ( )
+protected native Object clone ( ) throws CloneNotSupportedException 
+private static native void registerNatives ( )
+public final native void notify ( )
+public final native void notifyAll ( )
+++++++++++++ Getting Constructors ++++++++++++
+public java.lang.Object( )
+======
+======
+In class: java.io.Serializable
+No superclass to inspect
+++++++++++++ Getting Fields of Serializable ++++++++++++
+   +++++ Methods of Class Serializable ++++++    
+this class has 0 declared methods
+======
+end of inspection of class public final class ClassA implements Serializable Runnable 
+======================================================
+======================================================
+Running Test: ClassB
+public class ClassB extends ClassC  implements Runnable 
+Name of Superclass: ClassC
+++++++++++++ Getting Interfaces ++++++++++++
+Interfaces: Runnable 
+++++++++++++ Getting Fields of ClassB ++++++++++++
+private ClassA val ClassA
+private ClassA val2 ClassA
+   +++++ Methods of Class ClassB ++++++    
+this class has 3 declared methods
+public void func3 ( int )
+public void run ( )
+public String toString ( )
+++++++++++++ Getting Constructors ++++++++++++
+public ClassB( )
+======
+In class: ClassC
+Name of Superclass: ClassD
+++++++++++++ Getting Interfaces ++++++++++++
+Interfaces: InterfaceA 
+++++++++++++ Getting Fields of ClassC ++++++++++++
+private ClassA val2 ClassA
+private ClassA val3 ClassA
+private ClassA val4 ClassA
+   +++++ Methods of Class ClassC ++++++    
+this class has 6 declared methods
+public abstract void func3 ( int )
+public void func0 ( int boolean ) throws Exception 
+public void func1 ( int double boolean String ) throws Exception 
+public int func2 ( String ) throws Exception ArithmeticException IllegalMonitorStateException 
+public void run ( )
+public String toString ( )
+++++++++++++ Getting Constructors ++++++++++++
+public ClassC( )
+public ClassC( int int )
+======
+======
+In class: ClassA
+Name of Superclass: java.lang.Object
+++++++++++++ Getting Interfaces ++++++++++++
+Interfaces: Serializable Runnable 
+++++++++++++ Getting Fields of ClassA ++++++++++++
+   +++++ Methods of Class ClassA ++++++    
+this class has 5 declared methods
+public int getVal ( )
+private void printSomething ( )
+public void run ( )
+public String toString ( )
+public void setVal ( int ) throws Exception 
+++++++++++++ Getting Constructors ++++++++++++
+public ClassA( )
+public ClassA( int )
+======
+======
+In class: ClassD
+Name of Superclass: java.lang.Object
+++++++++++++ Getting Fields of ClassD ++++++++++++
+private ClassA val ClassA
+private int val3 34
+[ null null null null null null null null null null ]
+private ClassA[] vallarray [LClassA;@1540e19d
+   +++++ Methods of Class ClassD ++++++    
+this class has 2 declared methods
+public int getVal3 ( )
+public String toString ( )
+++++++++++++ Getting Constructors ++++++++++++
+public ClassD( )
+public ClassD( int )
+======
+======
+In class: InterfaceA
+No superclass to inspect
+++++++++++++ Getting Interfaces ++++++++++++
+Interfaces: InterfaceB 
+++++++++++++ Getting Fields of InterfaceA ++++++++++++
+   +++++ Methods of Class InterfaceA ++++++    
+this class has 2 declared methods
+public abstract void func1 ( int double boolean String ) throws Exception 
+public abstract int func2 ( String ) throws Exception ArithmeticException IllegalMonitorStateException 
+======
+======
+In class: java.lang.Object
+No superclass to inspect
+++++++++++++ Getting Fields of Object ++++++++++++
+   +++++ Methods of Class Object ++++++    
+this class has 12 declared methods
+protected void finalize ( ) throws Throwable 
+public final void wait ( long int ) throws InterruptedException 
+public final native void wait ( long ) throws InterruptedException 
+public final void wait ( ) throws InterruptedException 
+public boolean equals ( Object )
+public String toString ( )
+public native int hashCode ( )
+public final native Class getClass ( )
+protected native Object clone ( ) throws CloneNotSupportedException 
+private static native void registerNatives ( )
+public final native void notify ( )
+public final native void notifyAll ( )
+++++++++++++ Getting Constructors ++++++++++++
+public java.lang.Object( )
+======
+======
+In class: java.io.Serializable
+No superclass to inspect
+++++++++++++ Getting Fields of Serializable ++++++++++++
+   +++++ Methods of Class Serializable ++++++    
+this class has 0 declared methods
+======
+======
+In class: InterfaceB
+No superclass to inspect
+++++++++++++ Getting Fields of InterfaceB ++++++++++++
+   +++++ Methods of Class InterfaceB ++++++    
+this class has 1 declared methods
+public abstract void func0 ( int boolean ) throws Exception 
+======
+end of inspection of class public class ClassB extends ClassC  implements Runnable 
+======================================================
+======================================================
+Running Test: ClassD
+public class ClassD
+Name of Superclass: java.lang.Object
+++++++++++++ Getting Fields of ClassD ++++++++++++
+private ClassA val ClassA
+private int val3 32
+[ null null null null null null null null null null ]
+private ClassA[] vallarray [LClassA;@7f31245a
+   +++++ Methods of Class ClassD ++++++    
+this class has 2 declared methods
+public int getVal3 ( )
+public String toString ( )
+++++++++++++ Getting Constructors ++++++++++++
+public ClassD( )
+public ClassD( int )
+======
+In class: java.lang.Object
+No superclass to inspect
+++++++++++++ Getting Fields of Object ++++++++++++
+   +++++ Methods of Class Object ++++++    
+this class has 12 declared methods
+protected void finalize ( ) throws Throwable 
+public final void wait ( long int ) throws InterruptedException 
+public final native void wait ( long ) throws InterruptedException 
+public final void wait ( ) throws InterruptedException 
+public boolean equals ( Object )
+public String toString ( )
+public native int hashCode ( )
+public final native Class getClass ( )
+protected native Object clone ( ) throws CloneNotSupportedException 
+private static native void registerNatives ( )
+public final native void notify ( )
+public final native void notifyAll ( )
+++++++++++++ Getting Constructors ++++++++++++
+public java.lang.Object( )
+======
+======
+In class: ClassA
+Name of Superclass: java.lang.Object
+++++++++++++ Getting Interfaces ++++++++++++
+Interfaces: Serializable Runnable 
+++++++++++++ Getting Fields of ClassA ++++++++++++
+   +++++ Methods of Class ClassA ++++++    
+this class has 5 declared methods
+public int getVal ( )
+private void printSomething ( )
+public void run ( )
+public String toString ( )
+public void setVal ( int ) throws Exception 
+++++++++++++ Getting Constructors ++++++++++++
+public ClassA( )
+public ClassA( int )
+======
+======
+In class: java.io.Serializable
+No superclass to inspect
+++++++++++++ Getting Fields of Serializable ++++++++++++
+   +++++ Methods of Class Serializable ++++++    
+this class has 0 declared methods
+======
+end of inspection of class public class ClassD
+======================================================
+======================================================
+Running Test: ClassD
+public class ClassD
+Name of Superclass: java.lang.Object
+++++++++++++ Getting Fields of ClassD ++++++++++++
+private ClassA val ClassA
+private int val3 34
+[ null null null null null null null null null null ]
+private ClassA[] vallarray [LClassA;@6d6f6e28
+   +++++ Methods of Class ClassD ++++++    
+this class has 2 declared methods
+public int getVal3 ( )
+public String toString ( )
+++++++++++++ Getting Constructors ++++++++++++
+public ClassD( )
+public ClassD( int )
+======
+In class: java.lang.Object
+No superclass to inspect
+++++++++++++ Getting Fields of Object ++++++++++++
+   +++++ Methods of Class Object ++++++    
+this class has 12 declared methods
+protected void finalize ( ) throws Throwable 
+public final void wait ( long int ) throws InterruptedException 
+public final native void wait ( long ) throws InterruptedException 
+public final void wait ( ) throws InterruptedException 
+public boolean equals ( Object )
+public String toString ( )
+public native int hashCode ( )
+public final native Class getClass ( )
+protected native Object clone ( ) throws CloneNotSupportedException 
+private static native void registerNatives ( )
+public final native void notify ( )
+public final native void notifyAll ( )
+++++++++++++ Getting Constructors ++++++++++++
+public java.lang.Object( )
+======
+======
+In class: ClassA
+Name of Superclass: java.lang.Object
+++++++++++++ Getting Interfaces ++++++++++++
+Interfaces: Serializable Runnable 
+++++++++++++ Getting Fields of ClassA ++++++++++++
+   +++++ Methods of Class ClassA ++++++    
+this class has 5 declared methods
+public int getVal ( )
+private void printSomething ( )
+public void run ( )
+public String toString ( )
+public void setVal ( int ) throws Exception 
+++++++++++++ Getting Constructors ++++++++++++
+public ClassA( )
+public ClassA( int )
+======
+======
+In class: java.io.Serializable
+No superclass to inspect
+++++++++++++ Getting Fields of Serializable ++++++++++++
+   +++++ Methods of Class Serializable ++++++    
+this class has 0 declared methods
+======
+end of inspection of class public class ClassD
+======================================================
+======================================================
+Running Test: [LClassB;@135fbaa4
+public abstract final class ClassB[] implements Cloneable Serializable 
+[ null null null null null null null null null null null null ]
+Name of Superclass: java.lang.Object
+++++++++++++ Getting Interfaces ++++++++++++
+Interfaces: Cloneable Serializable 
+++++++++++++ Getting Fields of ClassB[] ++++++++++++
+   +++++ Methods of Class ClassB[] ++++++    
+this class has 0 declared methods
+======
+In class: ClassB
+Name of Superclass: ClassC
+++++++++++++ Getting Interfaces ++++++++++++
+Interfaces: Runnable 
+++++++++++++ Getting Fields of ClassB ++++++++++++
+   +++++ Methods of Class ClassB ++++++    
+this class has 3 declared methods
+public void func3 ( int )
+public void run ( )
+public String toString ( )
+++++++++++++ Getting Constructors ++++++++++++
+public ClassB( )
+======
+======
+In class: java.lang.Object
+No superclass to inspect
+++++++++++++ Getting Fields of Object ++++++++++++
+   +++++ Methods of Class Object ++++++    
+this class has 12 declared methods
+protected void finalize ( ) throws Throwable 
+public final void wait ( long int ) throws InterruptedException 
+public final native void wait ( long ) throws InterruptedException 
+public final void wait ( ) throws InterruptedException 
+public boolean equals ( Object )
+public String toString ( )
+public native int hashCode ( )
+public final native Class getClass ( )
+protected native Object clone ( ) throws CloneNotSupportedException 
+private static native void registerNatives ( )
+public final native void notify ( )
+public final native void notifyAll ( )
+++++++++++++ Getting Constructors ++++++++++++
+public java.lang.Object( )
+======
+======
+In class: java.io.Serializable
+No superclass to inspect
+++++++++++++ Getting Fields of Serializable ++++++++++++
+   +++++ Methods of Class Serializable ++++++    
+this class has 0 declared methods
+======
+======
+In class: ClassC
+Name of Superclass: ClassD
+++++++++++++ Getting Interfaces ++++++++++++
+Interfaces: InterfaceA 
+++++++++++++ Getting Fields of ClassC ++++++++++++
+   +++++ Methods of Class ClassC ++++++    
+this class has 6 declared methods
+public abstract void func3 ( int )
+public void func0 ( int boolean ) throws Exception 
+public void func1 ( int double boolean String ) throws Exception 
+public int func2 ( String ) throws Exception ArithmeticException IllegalMonitorStateException 
+public void run ( )
+public String toString ( )
+++++++++++++ Getting Constructors ++++++++++++
+public ClassC( )
+public ClassC( int int )
+======
+======
+In class: ClassA
+Name of Superclass: java.lang.Object
+++++++++++++ Getting Interfaces ++++++++++++
+Interfaces: Serializable Runnable 
+++++++++++++ Getting Fields of ClassA ++++++++++++
+   +++++ Methods of Class ClassA ++++++    
+this class has 5 declared methods
+public int getVal ( )
+private void printSomething ( )
+public void run ( )
+public String toString ( )
+public void setVal ( int ) throws Exception 
+++++++++++++ Getting Constructors ++++++++++++
+public ClassA( )
+public ClassA( int )
+======
+======
+In class: ClassD
+Name of Superclass: java.lang.Object
+++++++++++++ Getting Fields of ClassD ++++++++++++
+Caught an illegal exception with arrays
+   +++++ Methods of Class ClassD ++++++    
+this class has 2 declared methods
+public int getVal3 ( )
+public String toString ( )
+++++++++++++ Getting Constructors ++++++++++++
+public ClassD( )
+public ClassD( int )
+======
+======
+In class: InterfaceA
+No superclass to inspect
+++++++++++++ Getting Interfaces ++++++++++++
+Interfaces: InterfaceB 
+++++++++++++ Getting Fields of InterfaceA ++++++++++++
+   +++++ Methods of Class InterfaceA ++++++    
+this class has 2 declared methods
+public abstract void func1 ( int double boolean String ) throws Exception 
+public abstract int func2 ( String ) throws Exception ArithmeticException IllegalMonitorStateException 
+======
+======
+In class: InterfaceB
+No superclass to inspect
+++++++++++++ Getting Fields of InterfaceB ++++++++++++
+   +++++ Methods of Class InterfaceB ++++++    
+this class has 1 declared methods
+public abstract void func0 ( int boolean ) throws Exception 
+======
+end of inspection of class public abstract final class ClassB[] implements Cloneable Serializable 
+======================================================
+======================================================
+Running Test: [[LClassB;@330bedb4
+public abstract final class ClassB[][] implements Cloneable Serializable 
+[ null null null null null null null null null null null null ]
+[ null null null null null null null null null null null null ]
+[ null null null null null null null null null null null null ]
+[ null null null null null null null null null null null null ]
+[ null null null null null null null null null null null null ]
+[ null null null null null null null null null null null null ]
+[ null null null null null null null null null null null null ]
+[ null null null null null null null null null null null null ]
+[ null null null null null null null null null null null null ]
+[ null null null null null null null null null null null null ]
+[ null null null null null null null null null null null null ]
+[ null null null null null null null null null null null null ]
+[ ClassB[] ClassB[] ClassB[] ClassB[] ClassB[] ClassB[] ClassB[] ClassB[] ClassB[] ClassB[] ClassB[] ClassB[] ]
+Name of Superclass: java.lang.Object
+++++++++++++ Getting Interfaces ++++++++++++
+Interfaces: Cloneable Serializable 
+++++++++++++ Getting Fields of ClassB[][] ++++++++++++
+   +++++ Methods of Class ClassB[][] ++++++    
+this class has 0 declared methods
+======
+In class: [LClassB;
+Name of Superclass: java.lang.Object
+++++++++++++ Getting Interfaces ++++++++++++
+Interfaces: Cloneable Serializable 
+++++++++++++ Getting Fields of ClassB[] ++++++++++++
+   +++++ Methods of Class ClassB[] ++++++    
+this class has 0 declared methods
+======
+======
+In class: java.lang.Object
+No superclass to inspect
+++++++++++++ Getting Fields of Object ++++++++++++
+   +++++ Methods of Class Object ++++++    
+this class has 12 declared methods
+protected void finalize ( ) throws Throwable 
+public final void wait ( long int ) throws InterruptedException 
+public final native void wait ( long ) throws InterruptedException 
+public final void wait ( ) throws InterruptedException 
+public boolean equals ( Object )
+public String toString ( )
+public native int hashCode ( )
+public final native Class getClass ( )
+protected native Object clone ( ) throws CloneNotSupportedException 
+private static native void registerNatives ( )
+public final native void notify ( )
+public final native void notifyAll ( )
+++++++++++++ Getting Constructors ++++++++++++
+public java.lang.Object( )
+======
+======
+In class: java.io.Serializable
+No superclass to inspect
+++++++++++++ Getting Fields of Serializable ++++++++++++
+   +++++ Methods of Class Serializable ++++++    
+this class has 0 declared methods
+======
+end of inspection of class public abstract final class ClassB[][] implements Cloneable Serializable 
+======================================================
+]0;bbowd@DESKTOP-94NVG4D: /mnt/c/Users/Brian/workspace/ReflectiveObjectInspector/bin[01;36mbbowd@DESKTOP-94NVG4D[00m:[01;35m/mnt/c/Users/Brian/workspace/ReflectiveObjectInspector/bin[00m$ 
+--> exit
+
+Script done on Fri 08 Mar 2019 01:29:41 PM STD

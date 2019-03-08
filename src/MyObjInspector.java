@@ -10,8 +10,6 @@ public class MyObjInspector {
 	
 	public void inspect (Object object, boolean recursive){
 		
-		System.out.println("\n\n\n");
-		
 		hash = new HashMap<String, Class>();
 		seen = new Vector<String>();
 		//HashMap objectsToInspect = new HashMap();
@@ -40,38 +38,33 @@ public class MyObjInspector {
 			inspectArray(object, classObject, recursive);
 			printArray(object, recursive);
 		}
-		
-		//inspect name of declaring class
+
 		//inspect name of immediate superclass
-		inspectSuperclass(object, classObject, recursive);
+		inspectSuperclass(classObject, recursive);
 		//inspect name of interfaces the class implements
-		inspectInterfaces(object, classObject, recursive);
+		inspectInterfaces(classObject, recursive);
 		//inspect fields the class declares
 		inspectFields(object, classObject, recursive);
-
 		//inspect methods the class declares
-		inspectMethods(object, classObject);
+		inspectMethods(classObject);
 		//inspect constructors the class declares
-		inspectConstructors(object, classObject);		
+		inspectConstructors(classObject);		
 		//inspectFieldClasses(object, objectsToInspect, classObject, recursive);
-		
-		//inspect field values (only if recursive)
-
 		
 		for(int i = 0; i < seen.size(); i++){
 			String s = seen.get(i).toString();
 			Class c = hash.get(s);
 			System.out.println("======");
 			System.out.println("In class: " + c.getName());
-			inspectSuperclass(object, c, recursive);
+			inspectSuperclass(c, recursive);
 			//inspect name of interfaces the class implements
-			inspectInterfaces(object, c, recursive);
+			inspectInterfaces(c, recursive);
 			//inspect fields the class declares
 			inspectFields(object, c, recursive);
 			//inspect methods the class declares
-			inspectMethods(object, c);
+			inspectMethods(c);
 			//inspect constructors the class declares
-			inspectConstructors(object, c);	
+			inspectConstructors(c);	
 			System.out.println("======");
 		}
 		
@@ -122,18 +115,11 @@ public class MyObjInspector {
 					
 				}
 
-			}
-				
+			}		
 		}
-/*		if (classObj.getSuperclass() != java.lang.Object.class && classObj.getSuperclass() != null){
-			System.out.println("------------------------------------------------------------");
-			System.out.println("Inspecting fields of " + classObj.getName() + "'s Superclass: ");
-			inspectFields(obj, objsToInsp, classObj.getSuperclass());
-			System.out.println("------------------------------------------------------------");
-		}*/
 	}
 	
-	private void inspectSuperclass(Object obj, Class classObj, boolean recursive){
+	private void inspectSuperclass(Class classObj, boolean recursive){
 
 		if (classObj.getSuperclass() != null){
 			try {
@@ -160,7 +146,7 @@ public class MyObjInspector {
 	
 	}
 	
-	private void inspectMethods(Object obj, Class classObj){
+	private void inspectMethods(Class classObj){
 		System.out.println("   +++++ Methods of Class " + classObj.getSimpleName() + " ++++++    " );
 		System.out.println("this class has " + classObj.getDeclaredMethods().length + " declared methods");
 		if (classObj.getDeclaredMethods().length > 0){
@@ -203,7 +189,7 @@ public class MyObjInspector {
 		}
 	}
 	
-	private void inspectConstructors(Object obj, Class classObj){
+	private void inspectConstructors(Class classObj){
 		if (classObj.getDeclaredConstructors().length > 0){
 			System.out.println("++++++++++++ Getting Constructors ++++++++++++");
 			Constructor constructors[] = classObj.getDeclaredConstructors();
@@ -220,7 +206,7 @@ public class MyObjInspector {
 		}
 	}
 	
-	private void inspectInterfaces(Object obj, Class classObj, boolean recursive){
+	private void inspectInterfaces(Class classObj, boolean recursive){
 		if (classObj.getInterfaces().length > 0){
 			System.out.println("++++++++++++ Getting Interfaces ++++++++++++");
 			Class[] interfaces = classObj.getInterfaces();
